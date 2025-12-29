@@ -90,7 +90,7 @@ const Pricing = () => {
             </div>
             <p className="text-gray-300 text-sm mb-6">07h00 - 17h00</p>
             <div className="text-6xl font-black text-white mb-2">€30</div>
-            <p className="text-white/70 text-lg">por hora</p>
+            <p className="text-white/70 text-lg">1h30 de jogo</p>
             <div className="mt-6 pt-6 border-t border-white/20">
               <p className="text-white text-sm">Ideal para treinos matinais</p>
             </div>
@@ -103,8 +103,8 @@ const Pricing = () => {
               <h4 className="text-2xl font-bold text-white uppercase">Peak</h4>
             </div>
             <p className="text-gray-100 text-sm mb-6">17h00 - 23h00</p>
-            <div className="text-6xl font-black text-white mb-2">€45</div>
-            <p className="text-white/70 text-lg">por hora</p>
+            <div className="text-6xl font-black text-white mb-2">€46</div>
+            <p className="text-white/70 text-lg">1h30 de jogo</p>
             <div className="mt-6 pt-6 border-t border-white/20">
               <p className="text-white text-sm">Horário premium</p>
             </div>
