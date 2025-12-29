@@ -57,9 +57,8 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6"
         >
-          <span className="text-white block">ONDE O</span>
-          <span className="text-spin-orange block">PADEL</span>
-          <span className="text-white block">ACONTECE</span>
+          <span className="text-white block">BEM-VINDO AO</span>
+          <span className="text-spin-orange block">SPIN PADEL</span>
         </motion.h1>
 
         {/* Subtítulo */}
@@ -78,7 +77,7 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
               className="relative bg-spin-orange text-white font-bold text-base md:text-lg px-10 py-4 rounded-full shadow-2xl transition-all duration-300 w-full sm:w-auto hover:bg-white hover:text-black"
             >
-              PRÉ-RESERVA
+              RESERVAR AGORA
             </motion.button>
           </div>
         </motion.div>
