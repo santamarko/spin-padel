@@ -1,5 +1,15 @@
 # CLAUDE.md - Spin Padel Club Website
 
+## IMPORTANT: Working Instructions for Claude
+
+**ALWAYS RUN TERMINAL COMMANDS DIRECTLY - DO NOT ASK THE USER TO RUN THEM**
+- When you need to run any command (npm, git, vercel, etc.), use the Bash tool immediately
+- Never tell the user "run this command in your terminal" - just run it yourself
+- The user expects you to execute commands autonomously
+- This includes: builds, deployments, git commits, npm installs, plugin installations, etc.
+
+---
+
 ## Project Overview
 
 **Spin Padel Club** is a modern, responsive landing page and multi-page website for a premium padel club. The site features dynamic video backgrounds, smooth animations, and a clean design system aligned with the brand's identity.
