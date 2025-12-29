@@ -2,6 +2,25 @@
 
 Landing page moderna e responsiva para o Spin Padel Club, desenvolvida com React, TailwindCSS e Framer Motion.
 
+## 🚀 DEPLOY RÁPIDO (Site Online 24/7)
+
+**Quer colocar o site online agora?**
+
+```bash
+# 1. Login no Vercel (abre o browser para autenticar)
+vercel login
+
+# 2. Fazer deploy
+npm run deploy
+
+# Ou apenas preview:
+npm run deploy:preview
+```
+
+Depois do deploy, o teu site estará **online 24/7** e acessível de qualquer lugar! 🌍
+
+**Ver guia completo:** [DEPLOYMENT.md](./DEPLOYMENT.md)
+
 ## 🎨 Paleta de Cores
 
 - **Azul**: `#1c5ba6`
@@ -43,18 +62,31 @@ Para adicionar o seu vídeo ao Hero Section:
 Spin Padel/
 ├── src/
 │   ├── components/
-│   │   ├── Hero.jsx       # Hero section com vídeo
-│   │   ├── Features.jsx   # Cards de funcionalidades
-│   │   └── CTA.jsx        # Call to action final
+│   │   ├── layout/        # Navbar, Footer
+│   │   ├── sections/      # Hero, Features, Pricing, etc.
+│   │   └── common/        # Componentes reutilizáveis
+│   ├── config/            # Configurações do site
+│   ├── constants/         # Dados estáticos (features, pricing, etc.)
+│   ├── hooks/             # Custom React hooks
+│   ├── layouts/           # Layout wrappers
+│   ├── pages/             # Páginas da aplicação
+│   ├── styles/            # Presets de animação
+│   ├── utils/             # Funções auxiliares
 │   ├── App.jsx            # Componente principal
 │   ├── main.jsx           # Entry point
 │   └── index.css          # Estilos globais
+├── public/
+│   └── video/             # Vídeos do hero
+├── ARCHITECTURE.md        # Documentação da arquitetura
+├── DEPLOYMENT.md          # Guia de deploy
 ├── index.html
 ├── package.json
-├── tailwind.config.js     # Configuração do Tailwind
+├── tailwind.config.js
 ├── vite.config.js
-└── postcss.config.js
+└── vercel.json            # Config de deploy
 ```
+
+**Ver documentação completa:** [ARCHITECTURE.md](./ARCHITECTURE.md)
 
 ## ✨ Funcionalidades
 
