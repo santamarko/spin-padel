@@ -10,7 +10,10 @@
       "Bash(git commit:*)",
       "Bash(npm install:*)",
       "Bash(vercel:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(/plugin install:*)",
+      "WebSearch",
+      "WebFetch(domain:padelalto.com)"
     ]
   }
 }

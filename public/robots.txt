@@ -1,0 +1,6 @@
+# Spin Padel Club - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://spinpadel.pt/sitemap.xml

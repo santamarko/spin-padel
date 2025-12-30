@@ -76,25 +76,54 @@ Spin Padel/
 
 ---
 
+## Contact Information
+
+**WhatsApp / Phone:** +351 928 439 668
+**Email:** bracosentusiastas@gmail.com
+**Address:** Complexo Municipal de Fitares, R. Casuarinas 9, 2635 Rinchoa
+
+---
+
 ## Design System
 
-### Brand Colors
+### Official Brand Colors (Spin Padel)
 
-The site uses a carefully defined color palette. **Always use these custom Tailwind classes:**
+These are the **official brand colors** for Spin Padel. Always use these exact hex codes:
+
+```
+┌─────────────────┬─────────────────┐
+│   SPIN BLUE     │   SPIN ORANGE   │
+│    #1c5ba6      │    #ec8026      │
+├─────────────────┼─────────────────┤
+│   OFF-WHITE     │   TEAL DARK     │
+│    #ece9e4      │    #0e2128      │
+├─────────────────┴─────────────────┤
+│           SPIN BLACK              │
+│             #060606               │
+└───────────────────────────────────┘
+```
 
 | Color Name | Hex Code | Tailwind Class | Usage |
 |------------|----------|----------------|-------|
-| Spin Blue | `#1c5ba6` | `spin-blue` | Primary brand color, CTAs, accents |
-| Spin Orange | `#ec8026` | `spin-orange` | Secondary brand color, highlights, CTA buttons |
-| Off-white | `#ece9e4` | `spin-offwhite` | Backgrounds, light sections |
-| Teal Dark | `#0e2128` | `spin-teal` | Dark backgrounds, footer |
-| Black Deep | `#060606` | `spin-black` | Text, dark overlays |
-| Dark | `#101826` | `spin-dark` | Alternative dark background |
+| **Spin Blue** | `#1c5ba6` | `bg-spin-blue` / `text-spin-blue` | Primary brand color, Off-Peak pricing, links |
+| **Spin Orange** | `#ec8026` | `bg-spin-orange` / `text-spin-orange` | Secondary brand color, Peak pricing, CTAs, highlights |
+| **Off-white/Cream** | `#ece9e4` | `bg-spin-offwhite` / `text-spin-offwhite` | Light backgrounds, cream sections |
+| **Teal Dark** | `#0e2128` | `bg-spin-teal` / `text-spin-teal` | Dark backgrounds, navbar, footer |
+| **Spin Black** | `#060606` | `bg-spin-black` / `text-spin-black` | Deep black, text, dark overlays |
+| **Dark** | `#101826` | `bg-spin-dark` / `text-spin-dark` | Alternative dark background (pages) |
+
+**Color Usage Guidelines:**
+- **Blue (#1c5ba6):** Off-Peak pricing cards, secondary buttons, info elements
+- **Orange (#ec8026):** Peak pricing cards, primary CTAs, active states, highlights
+- **Off-white (#ece9e4):** Light mode backgrounds, cream-colored sections
+- **Teal (#0e2128):** Main dark backgrounds, navbar, footer
+- **Black (#060606):** Deepest black, text on light backgrounds
 
 **Examples:**
 ```jsx
-<button className="bg-spin-orange text-white">Book Now</button>
+<button className="bg-spin-orange text-white">Reservar Agora</button>
 <section className="bg-spin-teal text-spin-offwhite">...</section>
+<div className="bg-spin-blue text-white">Off-Peak €30</div>
 ```
 
 ### Typography

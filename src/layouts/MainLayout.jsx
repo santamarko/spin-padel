@@ -1,4 +1,5 @@
 import { Navbar, Footer } from '../components/layout';
+import { WhatsAppButton, CookieConsent, BackToTop } from '../components/ui';
 
 /**
  * Main layout wrapper component
@@ -10,6 +11,9 @@ const MainLayout = ({ children }) => {
       <Navbar />
       <main>{children}</main>
       <Footer />
+      <BackToTop />
+      <WhatsAppButton />
+      <CookieConsent />
     </div>
   );
 };
