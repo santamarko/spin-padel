@@ -22,9 +22,8 @@ export default {
         'spin-light-grey': '#b5b3b3',
       },
       fontFamily: {
-        // Sporty Pro for headings (Black: 900, Bold: 700, XLight: 200)
-        'heading': ['"Sporty Pro"', 'system-ui', 'sans-serif'],
-        // Roboto for body text
+        // Roboto for all text
+        'heading': ['Roboto', 'system-ui', 'sans-serif'],
         'sans': ['Roboto', 'system-ui', 'sans-serif'],
         'body': ['Roboto', 'system-ui', 'sans-serif'],
       },
