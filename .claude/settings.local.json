@@ -13,7 +13,11 @@
       "Bash(cat:*)",
       "Bash(/plugin install:*)",
       "WebSearch",
-      "WebFetch(domain:padelalto.com)"
+      "WebFetch(domain:padelalto.com)",
+      "Bash(gh:*)",
+      "Bash(brew install:*)",
+      "Bash(git push:*)",
+      "Bash(/repos/santamarko/spin-padel/branches/main/protection )"
     ]
   }
 }
