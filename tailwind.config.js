@@ -14,6 +14,7 @@ export default {
         'spin-blue': '#1c5ba6',      // Padel Blue
         'spin-offwhite': '#ece9e4',  // Cream White
         'spin-black': '#060606',     // Dark Grey 1
+        'spin-dark': '#16171b',      // Main dark background
         // Dark Mode Palette
         'spin-dark-grey-2': '#16171b',
         'spin-dark-grey-3': '#212327',
