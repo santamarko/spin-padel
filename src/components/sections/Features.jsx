@@ -82,7 +82,7 @@ const Features = () => {
             </span>
           </h2>
           <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto font-light">
-            Experiência completa de padel com infraestrutura de classe mundial
+            Experiencia completa de padel num clube com infraestrutura de excelencia
           </p>
         </motion.div>
 
