@@ -5,10 +5,10 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "SportsActivityLocation",
   "name": "Spin Padel Club",
-  "description": "O teu destino premium para padel em Rinchoa. Campos de qualidade, aulas com instrutores certificados e uma comunidade apaixonada.",
+  "description": "O teu destino premium para padel em Rinchoa. Campos de qualidade, aulas com professores certificados e uma comunidade apaixonada.",
   "url": "https://spinpadel.pt",
   "telephone": "+351928439668",
-  "email": "bracosentusiastas@gmail.com",
+  "email": "info@spinpadel.pt",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Complexo Municipal de Fitares, R. Casuarinas 9",
@@ -55,7 +55,7 @@ const localBusinessSchema = {
 
 const SEO = ({
   title = 'Spin Padel Club',
-  description = 'O teu destino premium para padel em Rinchoa. Campos de qualidade, aulas com instrutores certificados e uma comunidade apaixonada. Reserva já!',
+  description = 'O teu destino premium para padel em Rinchoa. Campos de qualidade, aulas com professores certificados e uma comunidade apaixonada. Reserva já!',
   keywords = 'padel, spin padel, padel rinchoa, campos padel, aulas padel, torneios padel, reservar campo padel',
   image = '/og-image.jpg',
   url = 'https://spinpadel.pt',

@@ -2,9 +2,10 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { features } from '../../constants';
 
-const FeatureCard = ({ title, description, icon, delay, gradient, isWhite, image }) => {
+const FeatureItem = ({ title, description, icon, delay, gradient, isWhite, index }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isReversed = index % 2 !== 0;
 
   return (
     <motion.div
@@ -12,42 +13,44 @@ const FeatureCard = ({ title, description, icon, delay, gradient, isWhite, image
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.6, delay }}
-      className={`relative ${gradient} rounded-2xl overflow-hidden group hover:scale-[1.03] transition-all duration-500 shadow-xl`}
+      className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 md:gap-12 items-center group`}
     >
-      {/* Background Image */}
-      {image && (
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover opacity-10 group-hover:scale-110 group-hover:opacity-15 transition-all duration-700"
-          />
-          <div className={`absolute inset-0 ${isWhite ? 'bg-white/80' : 'bg-black/60'}`}></div>
+      {/* Icon/Visual Side */}
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        className={`${gradient} rounded-3xl p-12 md:p-16 flex items-center justify-center w-full md:w-1/2 lg:w-2/5 aspect-square md:aspect-auto md:min-h-[350px] shadow-2xl`}
+      >
+        <div className={`w-32 h-32 md:w-40 md:h-40 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 ${isWhite ? 'text-black' : 'text-white'}`}>
+          {icon}
         </div>
-      )}
+      </motion.div>
 
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className={`absolute top-0 right-0 w-64 h-64 ${isWhite ? 'bg-black' : 'bg-white'} rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2`}></div>
-      </div>
-
-      <div className="relative z-10 p-8 min-h-[400px] flex flex-col">
-        <div className="text-7xl mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">{icon}</div>
-        <h3 className={`text-2xl md:text-3xl font-black ${isWhite ? 'text-black' : 'text-white'} mb-4 tracking-tight leading-tight uppercase`}>
+      {/* Content Side */}
+      <div className="flex-1 space-y-4">
+        <motion.h3
+          initial={{ opacity: 0, x: isReversed ? 20 : -20 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isReversed ? 20 : -20 }}
+          transition={{ duration: 0.6, delay: delay + 0.2 }}
+          className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight"
+        >
           {title}
-        </h3>
-        <p className={`${isWhite ? 'text-black/70' : 'text-white/80'} leading-relaxed text-sm`}>{description}</p>
+        </motion.h3>
+        <motion.p
+          initial={{ opacity: 0, x: isReversed ? 20 : -20 }}
+          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isReversed ? 20 : -20 }}
+          transition={{ duration: 0.6, delay: delay + 0.3 }}
+          className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-xl"
+        >
+          {description}
+        </motion.p>
       </div>
-
-      {/* Hover effect overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${isWhite ? 'from-black/0 to-black/10' : 'from-white/0 to-white/10'} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
     </motion.div>
   );
 };
 
 const Features = () => {
   return (
-    <section className="relative py-24 px-4 bg-black">
+    <section className="relative py-24 px-4 bg-gradient-to-b from-black from-40% to-spin-teal to-100%">
       {/* Gradient fade do hero para esta secção */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none"></div>
       
@@ -81,14 +84,12 @@ const Features = () => {
               DIVERTE-TE.
             </span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto font-light">
-            Experiencia completa de padel num clube com infraestrutura de excelencia
-          </p>
+          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto font-light whitespace-nowrap">Experiencia completa de padel num clube com infraestrutura de excelencia</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="space-y-24 md:space-y-32">
           {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} />
+            <FeatureItem key={index} {...feature} index={index} />
           ))}
         </div>
       </div>

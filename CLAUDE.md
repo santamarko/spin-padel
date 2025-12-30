@@ -21,6 +21,29 @@
 
 ---
 
+## Club Information
+
+**Location:** Complexo Municipal de Fitares, R. Casuarinas 9, 2635 Rinchoa, Sintra
+
+**Facilities:**
+- **8 Padel Courts** - Professional panoramic courts with Mondo Premier surface (best in the industry)
+- LED professional lighting
+- Daily maintenance
+
+**Opening Hours:**
+- All days: 08:00 - 24:00
+- Off-Peak hours: 08:00 - 17:00 (reduced pricing)
+
+**Contact:**
+- WhatsApp: +351 928 439 668
+- Email: info@spinpadel.pt
+
+**Pricing:**
+- Peak (1h30): €46
+- Off-Peak (1h30): €30
+
+---
+
 ## Tech Stack
 
 ### Core Technologies
@@ -86,38 +109,38 @@ Spin Padel/
 
 ## Design System
 
-### Official Brand Colors (Spin Padel)
+**Reference:** `Brandbook_10DEZ25.pdf` (official brandbook)
 
-These are the **official brand colors** for Spin Padel. Always use these exact hex codes:
+### Official Brand Colors (from Brandbook)
+
+These are the **official brand colors** from the Spin Padel brandbook:
 
 ```
 ┌─────────────────┬─────────────────┐
-│   SPIN BLUE     │   SPIN ORANGE   │
-│    #1c5ba6      │    #ec8026      │
+│  ENERGY ORANGE  │   PADEL BLUE    │
+│    #ed8026      │    #1c5ba6      │
 ├─────────────────┼─────────────────┤
-│   OFF-WHITE     │   TEAL DARK     │
-│    #ece9e4      │    #0e2128      │
+│   CREAM WHITE   │   DEEP BLUE     │
+│    #ece9e4      │    #0c2028      │
 ├─────────────────┴─────────────────┤
-│           SPIN BLACK              │
-│             #060606               │
+│         DARK GREY 1               │
+│           #060606                 │
 └───────────────────────────────────┘
 ```
 
 | Color Name | Hex Code | Tailwind Class | Usage |
 |------------|----------|----------------|-------|
-| **Spin Blue** | `#1c5ba6` | `bg-spin-blue` / `text-spin-blue` | Primary brand color, Off-Peak pricing, links |
-| **Spin Orange** | `#ec8026` | `bg-spin-orange` / `text-spin-orange` | Secondary brand color, Peak pricing, CTAs, highlights |
-| **Off-white/Cream** | `#ece9e4` | `bg-spin-offwhite` / `text-spin-offwhite` | Light backgrounds, cream sections |
-| **Teal Dark** | `#0e2128` | `bg-spin-teal` / `text-spin-teal` | Dark backgrounds, navbar, footer |
-| **Spin Black** | `#060606` | `bg-spin-black` / `text-spin-black` | Deep black, text, dark overlays |
-| **Dark** | `#101826` | `bg-spin-dark` / `text-spin-dark` | Alternative dark background (pages) |
+| **Energy Orange** | `#ed8026` | `bg-spin-orange` / `text-spin-orange` | Primary CTAs, highlights, Peak pricing |
+| **Padel Blue** | `#1c5ba6` | `bg-spin-blue` / `text-spin-blue` | Secondary elements, Off-Peak pricing |
+| **Deep Blue** | `#0c2028` | `bg-spin-teal` / `bg-spin-deep-blue` | Dark backgrounds, navbar, footer |
+| **Cream White** | `#ece9e4` | `bg-spin-offwhite` / `text-spin-offwhite` | Light backgrounds, cream sections |
+| **Dark Grey 1** | `#060606` | `bg-spin-black` / `text-spin-black` | Deepest black, text |
+| **Dark Grey 2** | `#16171b` | `bg-spin-dark-grey-2` | Dark mode backgrounds |
+| **Dark Grey 3** | `#212327` | `bg-spin-dark-grey-3` | Dark mode cards |
+| **Grey** | `#48484c` | `bg-spin-grey` | Secondary text |
+| **Light Grey** | `#b5b3b3` | `bg-spin-light-grey` | Body text on dark |
 
-**Color Usage Guidelines:**
-- **Blue (#1c5ba6):** Off-Peak pricing cards, secondary buttons, info elements
-- **Orange (#ec8026):** Peak pricing cards, primary CTAs, active states, highlights
-- **Off-white (#ece9e4):** Light mode backgrounds, cream-colored sections
-- **Teal (#0e2128):** Main dark backgrounds, navbar, footer
-- **Black (#060606):** Deepest black, text on light backgrounds
+**Dark Mode Gradients:** Use gradient from Deep Blue (#0c2028) to Dark Grey 1 (#060606)
 
 **Examples:**
 ```jsx
@@ -126,25 +149,45 @@ These are the **official brand colors** for Spin Padel. Always use these exact h
 <div className="bg-spin-blue text-white">Off-Peak €30</div>
 ```
 
-### Typography
+### Typography (from Brandbook)
 
-**Font Family:** Inter (Google Fonts)
-**Import:** Already in `index.css`
+**Primary Font - Sporty Pro** (titles/headers only):
+- Location: `public/fonts/SportyPro-*.woff2`
+- Weights: Black (900), Bold (700), XLight (200)
+- Tailwind class: `font-heading`
 
-**Font Weights Available:** 300, 400, 500, 600, 700, 800, 900
+**Secondary Font - Roboto** (body text):
+- Source: Google Fonts (imported in index.css)
+- Weights: Light (300), Regular (400), Medium (500), Bold (700), Black (900)
+- Tailwind class: `font-body` or default `font-sans`
 
-**Common Patterns:**
-- **Headings:** `font-black` (900) or `font-bold` (700)
-- **Body:** `font-normal` (400) or `font-medium` (500)
-- **Subtitles:** `font-semibold` (600)
+**Hierarchy (from Brandbook page 9):**
+- **H1:** Sporty Pro Black - largest titles
+- **H2:** Sporty Pro Bold - section titles
+- **H3:** Roboto Black - sub-headings
+- **Body:** Roboto Regular - paragraph text
 
-**Responsive Text Sizes:**
+**Line Spacing:** 120% rule (e.g., 21pt text = 25pt line height)
+
+**Usage Examples:**
 ```jsx
-// Use responsive classes for headings
-<h1 className="text-5xl md:text-7xl lg:text-8xl font-black">
-  ONDE O PADEL ACONTECE
+// H1 - Main title with Sporty Pro
+<h1 className="font-heading font-black text-5xl md:text-7xl lg:text-8xl">
+  SPIN PADEL
 </h1>
+
+// H2 - Section title
+<h2 className="font-heading font-bold text-4xl md:text-5xl">
+  O QUE DIZEM OS NOSSOS JOGADORES
+</h2>
+
+// Body text with Roboto (default)
+<p className="text-lg text-gray-400">
+  Descrição do conteúdo...
+</p>
 ```
+
+**Note:** Sporty Pro font files must be added to `public/fonts/` directory.
 
 ### Spacing & Layout
 

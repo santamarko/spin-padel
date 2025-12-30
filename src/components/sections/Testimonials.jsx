@@ -1,29 +1,95 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 const Testimonials = () => {
-  const testimonials = [
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const testimonialsList = [
     {
       name: 'João Silva',
       role: 'Jogador Regular',
-      quote: 'Os melhores campos de padel da zona! Superfície impecável e iluminação perfeita para jogos noturnos. Já trouxe todos os meus amigos.',
+      quote: 'Os melhores campos de padel da zona! Superfície impecável e iluminação perfeita para jogos noturnos.',
       rating: 5,
       avatar: 'JS'
     },
     {
       name: 'Ana Costa',
       role: 'Aluna de Padel',
-      quote: 'Comecei nas aulas de iniciação e em poucos meses já jogo com confiança. Os treinadores são fantásticos e super atenciosos.',
+      quote: 'Comecei nas aulas de iniciação e em poucos meses já jogo com confiança. Os treinadores são fantásticos.',
       rating: 5,
       avatar: 'AC'
     },
     {
       name: 'Miguel Ferreira',
       role: 'Competidor',
-      quote: 'Ambiente incrível e comunidade acolhedora. O bar é perfeito para conviver depois dos jogos. Recomendo a 100%!',
+      quote: 'Ambiente incrível e comunidade acolhedora. O bar é perfeito para conviver depois dos jogos.',
       rating: 5,
       avatar: 'MF'
+    },
+    {
+      name: 'Sofia Marques',
+      role: 'Jogadora Social',
+      quote: 'Ótima experiência! Os campos estão sempre em perfeito estado e o atendimento é excelente.',
+      rating: 5,
+      avatar: 'SM'
+    },
+    {
+      name: 'Carlos Oliveira',
+      role: 'Treinador',
+      quote: 'Trabalhar no Spin Padel é um prazer. Infraestrutura de classe mundial para treinar.',
+      rating: 5,
+      avatar: 'CO'
+    },
+    {
+      name: 'Filipa Rocha',
+      role: 'Membro Premium',
+      quote: 'Os melhores campos da região! Recomendo a todos os meus amigos que gostam de padel.',
+      rating: 5,
+      avatar: 'FR'
+    },
+    {
+      name: 'Ricardo Santos',
+      role: 'Competidor',
+      quote: 'Torneios emocionantes e comunidade incrível. Voltarei sempre ao Spin Padel!',
+      rating: 5,
+      avatar: 'RS'
+    },
+    {
+      name: 'Beatriz Teixeira',
+      role: 'Aluna de Padel',
+      quote: 'Os treinadores são muito profissionais e atenciosos. Já melhorei muito meu jogo.',
+      rating: 5,
+      avatar: 'BT'
+    },
+    {
+      name: 'André Correia',
+      role: 'Jogador Regular',
+      quote: 'Superfície Mondo Premier é realmente a melhor da indústria. Jogo perfeito!',
+      rating: 5,
+      avatar: 'AC2'
+    },
+    {
+      name: 'Mariana Dias',
+      role: 'Entusiasta',
+      quote: 'Ambiente descontraído e acolhedor. Já fiz muitos amigos aqui no Spin Padel!',
+      rating: 5,
+      avatar: 'MD'
     }
   ];
+
+  // Sort testimonials by rating (highest first)
+  const sortedTestimonials = [...testimonialsList].sort((a, b) => b.rating - a.rating);
+
+  // Create infinite loop by duplicating the array multiple times
+  const testimonials = [...sortedTestimonials, ...sortedTestimonials, ...sortedTestimonials];
+
+  // Auto-scroll carousel with infinite loop
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => prev + 1);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   const renderStars = (rating) => {
     return [...Array(5)].map((_, i) => (
@@ -39,7 +105,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 px-4 bg-spin-dark">
+    <section className="relative py-20 px-4 bg-spin-teal">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -57,46 +123,50 @@ const Testimonials = () => {
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, idx) => (
+        {/* Testimonials Carousel */}
+        <div className="relative mb-16">
+          <div className="overflow-hidden">
             <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="bg-spin-black/30 rounded-2xl p-8 relative"
+              className="flex gap-6"
+              animate={{ x: `-${currentIndex * 400}px` }}
+              transition={{ duration: 0.8, ease: 'easeInOut' }}
             >
-              {/* Quote Icon */}
-              <div className="absolute top-6 right-6 text-spin-orange/20">
-                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-              </div>
+              {testimonials.map((testimonial, idx) => (
+                <motion.div
+                  key={idx}
+                  className="flex-shrink-0 w-96 bg-spin-black/30 rounded-2xl p-8 relative flex flex-col h-96"
+                >
+                  {/* Quote Icon */}
+                  <div className="absolute top-6 right-6 text-spin-orange/20">
+                    <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                  </div>
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {renderStars(testimonial.rating)}
-              </div>
+                  {/* Stars */}
+                  <div className="flex gap-1 mb-4">
+                    {renderStars(testimonial.rating)}
+                  </div>
 
-              {/* Quote */}
-              <p className="text-gray-300 leading-relaxed mb-6 text-lg">
-                "{testimonial.quote}"
-              </p>
+                  {/* Quote */}
+                  <p className="text-gray-300 leading-relaxed mb-6 text-base flex-1">
+                    "{testimonial.quote}"
+                  </p>
 
-              {/* Author */}
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-spin-orange rounded-full flex items-center justify-center text-white font-bold">
-                  {testimonial.avatar}
-                </div>
-                <div>
-                  <div className="text-white font-bold">{testimonial.name}</div>
-                  <div className="text-gray-500 text-sm">{testimonial.role}</div>
-                </div>
-              </div>
+                  {/* Author at Bottom Left */}
+                  <div className="flex items-center gap-3 pt-4">
+                    <div className="w-12 h-12 bg-spin-orange rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                      {testimonial.avatar}
+                    </div>
+                    <div>
+                      <div className="text-white font-bold text-sm">{testimonial.name}</div>
+                      <div className="text-gray-500 text-xs">{testimonial.role}</div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </motion.div>
-          ))}
+          </div>
         </div>
 
         {/* Stats */}
@@ -105,23 +175,19 @@ const Testimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6"
         >
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-black text-spin-orange mb-2">500+</div>
-            <div className="text-gray-400 text-sm uppercase tracking-wide">Jogadores Ativos</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl md:text-5xl font-black text-spin-orange mb-2">4.9</div>
+            <div className="text-4xl md:text-5xl font-black text-white mb-2">4.9</div>
             <div className="text-gray-400 text-sm uppercase tracking-wide">Avaliação Média</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-black text-spin-orange mb-2">98%</div>
-            <div className="text-gray-400 text-sm uppercase tracking-wide">Satisfação</div>
+            <div className="text-4xl md:text-5xl font-black text-white mb-2">500+</div>
+            <div className="text-gray-400 text-sm uppercase tracking-wide">Jogadores Mensais Ativos</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-black text-spin-orange mb-2">3000+</div>
-            <div className="text-gray-400 text-sm uppercase tracking-wide">Jogos Realizados</div>
+            <div className="text-4xl md:text-5xl font-black text-white mb-2">3000+</div>
+            <div className="text-gray-400 text-sm uppercase tracking-wide">Nº Jogos Mensais</div>
           </div>
         </motion.div>
       </div>

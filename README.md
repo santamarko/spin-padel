@@ -2,7 +2,7 @@
 
 ![Spin Padel Logo](public/SpinPadel_Monogram_positive.png)
 
-Website oficial do **Spin Padel** - O teu clube de padel na Rinchoa.
+Website oficial do **Spin Padel** - O teu clube de padel em Fitares.
 
 🌐 **Live Site:** [spin-padel.vercel.app](https://spin-padel.vercel.app)
 
@@ -249,7 +249,7 @@ Output directory: `dist`
 
 This is a private project for Spin Padel Club. For any suggestions or issues, please contact:
 
-**Email:** bracosentusiastas@gmail.com
+**Email:** info@spinpadel.pt
 **WhatsApp:** +351 928 439 668
 
 ---

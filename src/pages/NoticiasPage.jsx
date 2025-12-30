@@ -110,11 +110,8 @@ export default function NoticiasPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 pt-8"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <img src="/SpinPadel_Monogram_positive.png" alt="Spin Padel" className="h-24 md:h-32 w-auto" />
-          </div>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-4 tracking-tight">
             NOTÍCIAS
           </h1>

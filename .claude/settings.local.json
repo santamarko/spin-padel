@@ -17,7 +17,8 @@
       "Bash(gh:*)",
       "Bash(brew install:*)",
       "Bash(git push:*)",
-      "Bash(/repos/santamarko/spin-padel/branches/main/protection )"
+      "Bash(/repos/santamarko/spin-padel/branches/main/protection )",
+      "WebFetch(domain:www.boredtourist.com)"
     ]
   }
 }

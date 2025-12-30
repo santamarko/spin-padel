@@ -38,8 +38,8 @@ export default function ContactoPage() {
       ),
       title: 'Email',
       description: 'Para questões detalhadas ou parcerias',
-      value: 'bracosentusiastas@gmail.com',
-      href: 'mailto:bracosentusiastas@gmail.com',
+      value: 'info@spinpadel.pt',
+      href: 'mailto:info@spinpadel.pt',
       color: 'bg-spin-orange'
     }
   ];
