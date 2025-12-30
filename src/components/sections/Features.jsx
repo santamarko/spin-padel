@@ -75,7 +75,7 @@ const Features = () => {
           >
           </motion.div>
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight leading-none">
-            CONHECE. <span className="text-spin-orange">DESCOBRE.</span>
+            EXPERIMENTA. <span className="text-spin-orange">APRENDE.</span>
             <br />
             <span style={{ color: '#1c5ba6' }}>
               DIVERTE-TE.
