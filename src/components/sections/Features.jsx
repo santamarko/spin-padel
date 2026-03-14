@@ -18,7 +18,7 @@ const FeatureItem = ({ title, description, icon, delay, gradient, isWhite, index
       {/* Icon/Visual Side */}
       <motion.div
         whileHover={{ scale: 1.05 }}
-        className={`${gradient} rounded-3xl p-12 md:p-16 flex items-center justify-center w-full md:w-1/2 lg:w-2/5 aspect-square md:aspect-auto md:min-h-[350px] shadow-2xl`}
+        className={`${gradient} rounded-3xl p-8 md:p-16 flex items-center justify-center w-full md:w-1/2 lg:w-2/5 h-48 sm:h-64 md:h-auto md:min-h-[350px] shadow-2xl`}
       >
         <div className={`w-32 h-32 md:w-40 md:h-40 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 ${isWhite ? 'text-black' : 'text-white'}`}>
           {icon}
@@ -31,7 +31,7 @@ const FeatureItem = ({ title, description, icon, delay, gradient, isWhite, index
           initial={{ opacity: 0, x: isReversed ? 20 : -20 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isReversed ? 20 : -20 }}
           transition={{ duration: 0.6, delay: delay + 0.2 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight"
+          className="text-4xl md:text-5xl lg:text-6xl font-heading font-black text-white tracking-tight leading-tight"
         >
           {title}
         </motion.h3>
@@ -77,14 +77,14 @@ const Features = () => {
             className="inline-block mb-6"
           >
           </motion.div>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight leading-none">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-white mb-6 tracking-tight leading-none">
             EXPERIMENTA. <span className="text-spin-orange">APRENDE.</span>
             <br />
-            <span style={{ color: '#1c5ba6' }}>
+            <span className="text-spin-blue">
               DIVERTE-TE.
             </span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto font-light whitespace-nowrap">Experiencia completa de padel num clube com infraestrutura de excelencia</p>
+          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto font-light">Experiência completa de padel num clube com infraestrutura de excelência</p>
         </motion.div>
 
         <div className="space-y-24 md:space-y-32">
