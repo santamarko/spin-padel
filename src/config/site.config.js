@@ -32,6 +32,6 @@ export const siteConfig = {
   },
 
   videos: {
-    hero: ['/video/hero-video-1.mp4', '/video/hero-video-2.mp4']
+    hero: ['/video/hero-grua.mp4']
   }
 };
