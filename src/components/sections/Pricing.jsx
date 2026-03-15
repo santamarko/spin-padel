@@ -115,15 +115,10 @@ const Pricing = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-24"
         >
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <img src="/SpinPadel_Monogram_Cream.svg" alt="Spin Padel" loading="lazy" className="h-24 md:h-32 w-auto" />
-          </div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-white mb-4 tracking-tight">
-            PREÇÁRIO <span className="text-spin-orange">2026</span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-white mb-3 tracking-tight text-center">
+            PREÇÁRIO
           </h1>
-          <p className="text-xl text-gray-400 tracking-wide max-w-2xl mx-auto">
-            Consulta os nossos preços de aluguer de campos e aulas de padel
-          </p>
+          <p className="text-lg text-white/70 tracking-widest text-center">2026</p>
         </motion.div>
 
         {/* ===== ALUGUERES SECTION ===== */}
