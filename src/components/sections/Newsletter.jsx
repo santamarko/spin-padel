@@ -27,6 +27,7 @@ const Newsletter = () => {
               repeatType: "loop"
             }}
             className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-heading font-black text-white/10 leading-tight whitespace-nowrap flex"
+            style={{ fontFamily: "'Sporty Pro', Roboto, sans-serif" }}
           >
             {[...line1Words, ...line1Words, ...line1Words].map((word, i) => (
               <span key={i} className="mx-6">{word}</span>
@@ -45,6 +46,7 @@ const Newsletter = () => {
               repeatType: "loop"
             }}
             className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-heading font-black text-white/10 leading-tight whitespace-nowrap flex"
+            style={{ fontFamily: "'Sporty Pro', Roboto, sans-serif" }}
           >
             {[...line2Words, ...line2Words, ...line2Words].map((word, i) => (
               <span key={i} className="mx-6">{word}</span>
@@ -63,6 +65,7 @@ const Newsletter = () => {
               repeatType: "loop"
             }}
             className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-heading font-black text-white/10 leading-tight whitespace-nowrap flex"
+            style={{ fontFamily: "'Sporty Pro', Roboto, sans-serif" }}
           >
             {[...line3Words, ...line3Words, ...line3Words].map((word, i) => (
               <span key={i} className="mx-6">{word}</span>

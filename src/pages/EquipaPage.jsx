@@ -15,46 +15,17 @@ export default function EquipaPage() {
   // ============================================
 
   const team = [
-    {
-      name: 'Gonçalo Bettencourt',
-      role: 'Diretor Desportivo',
-      image: null,
-    },
-    {
-      name: 'Rodrigo Mendes',
-      role: 'Marketing & Comunicação',
-      image: null,
-    },
-    {
-      name: 'Em breve',
-      role: 'Treinador',
-      image: null,
-      placeholder: true,
-    },
-    {
-      name: 'Em breve',
-      role: 'Treinador',
-      image: null,
-      placeholder: true,
-    },
-    {
-      name: 'Em breve',
-      role: 'Rececionista',
-      image: null,
-      placeholder: true,
-    },
-    {
-      name: 'Em breve',
-      role: 'Rececionista',
-      image: null,
-      placeholder: true,
-    },
-    {
-      name: 'Em breve',
-      role: 'Rececionista',
-      image: null,
-      placeholder: true,
-    },
+    { name: 'Gonçalo Bettencourt', role: 'Diretor Desportivo', image: null },
+    { name: 'Rodrigo Mendes', role: 'Marketing & Comunicação', image: null },
+    { name: 'João Roso', role: 'Treinador', image: null },
+    { name: 'Em breve', role: 'Treinador', image: null, placeholder: true },
+    { name: 'Diogo Cruz', role: 'Chefe de Receção', image: null },
+    { name: 'Em breve', role: 'Rececionista', image: null, placeholder: true },
+    { name: 'Em breve', role: 'Rececionista', image: null, placeholder: true },
+    { name: 'Mónica', role: 'Chefe de Bar', image: null },
+    { name: 'André Oliveira', role: 'Barista', image: null },
+    { name: 'Kaio', role: 'Barista', image: null },
+    { name: 'Fábio Tavares', role: 'Barista', image: null },
   ];
 
   // ============================================
@@ -88,7 +59,7 @@ export default function EquipaPage() {
 
       {/* Info */}
       <div className="p-3">
-        <h3 className={`text-sm font-bold mb-1 tracking-tight ${member.placeholder ? 'text-gray-500' : 'text-white'}`}>
+        <h3 className={`text-sm font-heading font-bold mb-1 tracking-tight ${member.placeholder ? 'text-gray-500' : 'text-white'}`}>
           {member.name}
         </h3>
         <p className="text-spin-orange font-bold uppercase text-xs tracking-wide">
@@ -99,7 +70,7 @@ export default function EquipaPage() {
   );
 
   return (
-    <div className="bg-spin-dark min-h-screen py-20 px-4">
+    <div className="bg-spin-deep-blue min-h-screen py-20 px-4">
       <SEO
         title="Equipa"
         description="Conhece a equipa de profissionais do Spin Padel. Uma equipa dedicada e apaixonada por padel, pronta para te receber."
@@ -169,21 +140,34 @@ export default function EquipaPage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-spin-black/30 rounded-xl p-8 text-center">
-              <div className="text-5xl mb-4">🏆</div>
+              <div className="w-14 h-14 mx-auto mb-4 text-spin-orange">
+                <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M18.75 4.236c.982.143 1.954.317 2.916.52A6.003 6.003 0 0016.27 9.728M18.75 4.236V4.5c0 2.108-.966 3.99-2.48 5.228m0 0a6.023 6.023 0 01-7.54 0" />
+                </svg>
+              </div>
               <h4 className="text-white font-bold text-xl mb-3">Excelência</h4>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Comprometidos com um serviço de alta qualidade em todas as interações
               </p>
             </div>
             <div className="bg-spin-black/30 rounded-xl p-8 text-center">
-              <div className="text-5xl mb-4">🤝</div>
+              <div className="w-14 h-14 mx-auto mb-4 text-spin-orange">
+                <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                </svg>
+              </div>
               <h4 className="text-white font-bold text-xl mb-3">Comunidade</h4>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Criamos um ambiente acolhedor onde todos se sentem parte da família Spin
               </p>
             </div>
             <div className="bg-spin-black/30 rounded-xl p-8 text-center">
-              <div className="text-5xl mb-4">💪</div>
+              <div className="w-14 h-14 mx-auto mb-4 text-spin-orange">
+                <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+                </svg>
+              </div>
               <h4 className="text-white font-bold text-xl mb-3">Paixão</h4>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Vivemos e respiramos padel, transmitindo essa energia a cada cliente
@@ -199,7 +183,7 @@ export default function EquipaPage() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="bg-gradient-to-br from-spin-orange to-spin-orange/80 rounded-2xl p-12 text-center mb-12"
         >
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+          <h3 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4 tracking-tight">
             Queres fazer parte da equipa?
           </h3>
           <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
@@ -210,7 +194,7 @@ export default function EquipaPage() {
             href="mailto:gestao@spinpadel.pt"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white text-black font-bold px-12 py-4 rounded-full hover:bg-spin-dark hover:text-white transition-all duration-300 shadow-2xl uppercase inline-flex items-center gap-3"
+            className="bg-white text-black font-heading font-bold px-12 py-4 rounded-full hover:bg-spin-dark hover:text-white transition-all duration-300 shadow-2xl uppercase inline-flex items-center gap-3"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

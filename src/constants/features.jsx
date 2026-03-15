@@ -11,7 +11,7 @@ export const features = [
       </svg>
     ),
     delay: 0.2,
-    gradient: 'bg-white',
+    gradient: 'bg-spin-offwhite',
     isWhite: true,
     image: null
   },
