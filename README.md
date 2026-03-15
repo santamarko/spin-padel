@@ -24,16 +24,19 @@ Site moderno e responsivo para o Spin Padel Club, localizado no Complexo Municip
 ## 🛠️ Tech Stack
 
 ### Core
+
 - **React 18.2.0** - UI library
 - **Vite 5.4.0** - Build tool & dev server
 - **React Router DOM 7.9.6** - Client-side routing
 
 ### Styling & Animation
+
 - **Tailwind CSS 3.3.5** - Utility-first CSS
 - **Framer Motion 10.16.4** - Animations
 - **PostCSS + Autoprefixer** - CSS processing
 
 ### SEO & Meta
+
 - **React Helmet Async** - Dynamic meta tags
 - **Sitemap.xml** - Search engine indexing
 - **Robots.txt** - Crawler instructions
@@ -43,6 +46,7 @@ Site moderno e responsivo para o Spin Padel Club, localizado no Complexo Municip
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 18+
 - npm or yarn
 
@@ -115,16 +119,17 @@ spin-padel/
 
 ### Brand Colors
 
-| Color | Hex | Tailwind Class |
-|-------|-----|----------------|
-| Spin Blue | `#1c5ba6` | `spin-blue` |
-| Spin Orange | `#ec8026` | `spin-orange` |
-| Off-white | `#ece9e4` | `spin-offwhite` |
-| Teal Dark | `#0e2128` | `spin-teal` |
-| Black Deep | `#060606` | `spin-black` |
-| Dark | `#101826` | `spin-dark` |
+| Color       | Hex       | Tailwind Class  |
+| ----------- | --------- | --------------- |
+| Spin Blue   | `#1c5ba6` | `spin-blue`     |
+| Spin Orange | `#ec8026` | `spin-orange`   |
+| Off-white   | `#ece9e4` | `spin-offwhite` |
+| Teal Dark   | `#0e2128` | `spin-teal`     |
+| Black Deep  | `#060606` | `spin-black`    |
+| Dark        | `#101826` | `spin-dark`     |
 
 ### Typography
+
 - **Font:** Inter (Google Fonts)
 - **Weights:** 300, 400, 500, 600, 700, 800, 900
 
@@ -133,26 +138,34 @@ spin-padel/
 ## 📄 Pages
 
 ### 🏠 Home (`/`)
+
 Landing page with video hero, features, pricing preview, and CTAs
 
 ### 💰 Preços (`/precos`)
+
 Detailed pricing table with Peak (€46) and Off-Peak (€30) rates for 1h30 sessions
 
 ### 👥 Equipa (`/equipa`)
+
 Team presentation with:
+
 - Gonçalo Bettencourt (Diretor Desportivo)
 - Rodrigo Mendes (Marketing & Comunicação)
 - Placeholder slots for coaches and reception staff
 
 ### 📰 Notícias (`/noticias`)
+
 - Club announcements and events
 - External padel news sources (FPP, Premier Padel, Padel FIP, etc.)
 
 ### 🤝 Parceiros (`/parceiros`)
+
 Partners page (coming soon template ready for future partnerships)
 
 ### 📞 Contacto (`/contacto`)
+
 Contact information with:
+
 - WhatsApp integration
 - Phone & Email
 - Location (Complexo Municipal de Fitares)
@@ -192,16 +205,21 @@ VITE_SITE_URL=https://spinpadel.pt
 ### Editing Content
 
 #### Update Team Members
+
 Edit `src/pages/EquipaPage.jsx` lines 17-77
 
 #### Update News/Announcements
+
 Edit `src/pages/NoticiasPage.jsx` lines 8-41
 
 #### Update Pricing
+
 Edit `src/pages/PricingPage.jsx` or `src/components/sections/Pricing.jsx`
 
 #### Update Opening Hours
+
 Edit:
+
 - `src/components/layout/Footer.jsx`
 - `src/pages/ContactoPage.jsx`
 
@@ -223,6 +241,7 @@ vercel --prod
 ### Alternative Platforms
 
 The site can also be deployed to:
+
 - **Netlify**
 - **Cloudflare Pages**
 - **GitHub Pages**
