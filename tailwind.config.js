@@ -21,7 +21,7 @@ export default {
         'spin-orange': '#ed8026',    // Energy Orange
         'spin-deep-blue': '#0c2028', // Deep Blue (main dark)
         'spin-teal': '#0c2028',      // Alias for Deep Blue (backwards compatibility)
-        'spin-blue': '#1c5ba6',      // Padel Blue
+        'spin-blue': '#50c8ec',      // Padel Blue (updated)
         'spin-offwhite': '#ece9e4',  // Cream White
         'spin-black': '#060606',     // Dark Grey 1
         'spin-dark': '#16171b',      // Main dark background
