@@ -37,7 +37,7 @@ const CTA = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-spin-orange text-white font-bold text-lg px-12 py-5 rounded-full shadow-2xl hover:bg-opacity-90 transition-all duration-300"
+          className="bg-spin-orange text-white font-heading font-bold text-lg px-12 py-5 rounded-full shadow-2xl hover:bg-opacity-90 transition-all duration-300"
         >
           Reserva o Teu Campo Agora
         </motion.button>

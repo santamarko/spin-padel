@@ -15,7 +15,7 @@ export default function ContactoPage() {
       description: 'Resposta rápida em menos de 1 hora',
       value: '+351 928 439 668',
       href: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Gostaria de mais informações sobre o Spin Padel.')}`,
-      color: 'bg-[#25D366]',
+      color: 'bg-spin-whatsapp',
       recommended: true
     },
     {
@@ -49,10 +49,10 @@ export default function ContactoPage() {
   ];
 
   return (
-    <div className="bg-spin-dark min-h-screen py-20 px-4">
+    <div className="bg-spin-deep-blue min-h-screen py-20 px-4">
       <SEO
         title="Contacto"
-        description="Entra em contacto com o Spin Padel. Reserva o teu campo via WhatsApp, telefone ou email. Estamos em Rinchoa, Sintra."
+        description="Entra em contacto com o Spin Padel. Reserva o teu campo via WhatsApp, telefone ou email. Estamos em Rio de Mouro, Sintra."
         keywords="contacto spin padel, reservar padel, telefone padel rinchoa, email spin padel"
         url="https://spinpadel.pt/contacto"
       />
@@ -65,7 +65,7 @@ export default function ContactoPage() {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center gap-3 mb-6">
-            <img src="/SpinPadel_Monogram_positive.png" alt="Spin Padel" className="h-24 md:h-32 w-auto" />
+            <img src="/SpinPadel_Monogram_positive.png" alt="Spin Padel" loading="lazy" className="h-24 md:h-32 w-auto" />
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-4 tracking-tight">
             CONTACTO
@@ -92,52 +92,52 @@ export default function ContactoPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
               whileHover={{ scale: 1.03 }}
-              className={`relative bg-spin-black/30 rounded-2xl p-8 text-center hover:bg-spin-black/50 transition-all duration-300 ${
+              className={`relative bg-spin-black/30 rounded-xl p-5 text-center hover:bg-spin-black/50 transition-all duration-300 ${
                 method.recommended ? 'ring-2 ring-spin-orange' : ''
               }`}
             >
               {method.recommended && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-spin-orange text-white text-xs font-bold px-4 py-1 rounded-full">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-spin-orange text-white text-xs font-bold px-3 py-1 rounded-full">
                   RECOMENDADO
                 </div>
               )}
-              <div className={`w-16 h-16 ${method.color} rounded-full flex items-center justify-center mx-auto mb-4 text-white`}>
+              <div className={`w-12 h-12 ${method.color} rounded-full flex items-center justify-center mx-auto mb-3 text-white`}>
                 {method.icon}
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">{method.title}</h3>
-              <p className="text-gray-400 text-sm mb-4">{method.description}</p>
-              <p className="text-spin-orange font-semibold">{method.value}</p>
+              <h3 className="text-lg font-bold text-white mb-1">{method.title}</h3>
+              <p className="text-gray-400 text-xs mb-2">{method.description}</p>
+              <p className="text-spin-orange font-semibold text-sm">{method.value}</p>
             </motion.a>
           ))}
         </motion.div>
 
         {/* Location & Hours */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
           {/* Location */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="bg-spin-black/30 rounded-2xl p-8"
+            className="bg-spin-black/30 rounded-xl p-6"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-spin-orange/20 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 text-spin-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white">Localização</h3>
+              <h3 className="text-lg font-bold text-white">Localização</h3>
             </div>
             <a
-              href="https://maps.google.com/?q=Complexo+Municipal+de+Fitares,+R.+Casuarinas+9,+2635+Rinchoa"
+              href="https://maps.google.com/?q=Piscinas+Fitares,+Praça+Clube+s/n,+2635-453+Rio+de+Mouro"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-300 not-italic leading-relaxed hover:text-spin-orange transition-colors"
+              className="text-gray-300 text-sm not-italic leading-relaxed hover:text-spin-orange transition-colors"
             >
-              <strong className="text-white">Complexo Municipal de Fitares</strong><br />
-              R. Casuarinas 9<br />
-              2635 Rinchoa, Sintra
+              <strong className="text-white">Piscinas Fitares</strong><br />
+              Praça Clube s/n<br />
+              2635-453 Rio de Mouro
             </a>
           </motion.div>
 
@@ -146,28 +146,23 @@ export default function ContactoPage() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="bg-spin-black/30 rounded-2xl p-8"
+            className="bg-spin-black/30 rounded-xl p-6"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-spin-blue/20 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-spin-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-spin-blue/20 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 text-spin-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-white">Horário</h3>
+              <h3 className="text-lg font-bold text-white">Horário</h3>
             </div>
-            <div className="space-y-4">
+            <div>
               {openingHours.map((schedule, idx) => (
-                <div key={idx} className="flex justify-between items-center border-b border-white/10 pb-3">
-                  <span className="text-gray-300">{schedule.day}</span>
-                  <span className="text-white font-semibold">{schedule.hours}</span>
+                <div key={idx} className="flex justify-between items-center">
+                  <span className="text-gray-300 text-sm">{schedule.day}</span>
+                  <span className="text-white font-semibold text-sm">{schedule.hours}</span>
                 </div>
               ))}
-            </div>
-            <div className="mt-6 p-4 bg-spin-orange/10 rounded-xl">
-              <p className="text-spin-orange text-sm font-medium">
-                Off-Peak: 08:00 - 17:00 (preços reduzidos)
-              </p>
             </div>
           </motion.div>
         </div>
@@ -191,7 +186,7 @@ export default function ContactoPage() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-3 bg-white text-spin-orange font-bold px-10 py-4 rounded-full hover:bg-spin-dark hover:text-white transition-all duration-300 shadow-lg uppercase"
+            className="inline-flex items-center gap-3 bg-white text-spin-orange font-heading font-bold px-10 py-4 rounded-full hover:bg-spin-dark hover:text-white transition-all duration-300 shadow-lg uppercase"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>

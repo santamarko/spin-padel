@@ -5,26 +5,23 @@ export const siteConfig = {
 
   contact: {
     email: 'info@spinpadel.pt',
-    phone: '+351 XXX XXX XXX',
+    phone: '+351 928 439 668',
     address: {
-      street: 'Rua do Padel, 123',
-      city: 'Lisboa',
-      postalCode: '1000-000',
+      street: 'Piscinas Fitares, Praça Clube s/n',
+      city: 'Rio de Mouro',
+      postalCode: '2635-453',
       country: 'Portugal'
     }
   },
 
   social: {
-    facebook: 'https://facebook.com/spinpadel',
-    instagram: 'https://instagram.com/spinpadel',
-    twitter: 'https://twitter.com/spinpadel',
-    youtube: 'https://youtube.com/spinpadel',
-    linkedin: 'https://linkedin.com/company/spinpadel'
+    instagram: 'https://www.instagram.com/spinpadel.fitares/',
+    tiktok: 'https://tiktok.com/@spinpadel',
   },
 
   hours: {
-    weekday: '07:00 - 23:00',
-    weekend: '08:00 - 22:00'
+    allDays: '08:00 - 24:00',
+    offPeak: '08:00 - 17:00',
   },
 
   stats: {

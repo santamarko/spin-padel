@@ -15,24 +15,6 @@ const Footer = () => {
       url: 'https://www.instagram.com/spinpadel.fitares/'
     },
     {
-      name: 'Facebook',
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-        </svg>
-      ),
-      url: 'https://facebook.com/spinpadel'
-    },
-    {
-      name: 'YouTube',
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-        </svg>
-      ),
-      url: 'https://youtube.com/@spinpadel'
-    },
-    {
       name: 'TikTok',
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -40,24 +22,14 @@ const Footer = () => {
         </svg>
       ),
       url: 'https://tiktok.com/@spinpadel'
-    },
-    {
-      name: 'LinkedIn',
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-        </svg>
-      ),
-      url: 'https://linkedin.com/company/spinpadel'
     }
   ];
 
   const quickLinks = [
     { name: 'Início', path: '/' },
-    { name: 'Preços', path: '/precos' },
     { name: 'Equipa', path: '/equipa' },
-    { name: 'Notícias', path: '/noticias' },
-    { name: 'Parceiros', path: '/parceiros' },
+    { name: 'Bar', path: '/bar' },
+    { name: 'Contacto', path: '/contacto' },
   ];
 
   const openingHours = [
@@ -78,26 +50,11 @@ const Footer = () => {
             className="lg:col-span-1"
           >
             <Link to="/" className="block">
-              <img src="/SpinPadel_Monogram_Cream.svg" alt="Spin Padel" className="h-12 w-auto mb-4" />
+              <img src="/SpinPadel_Monogram_Cream.svg" alt="Spin Padel" loading="lazy" className="h-12 w-auto mb-4" />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+            <p className="text-gray-400 text-sm leading-relaxed">
               O teu clube de padel em Fitares. Campos de qualidade, ambiente descontraído e uma comunidade que partilha a paixão pelo jogo.
             </p>
-            {/* Social Icons */}
-            <div className="flex items-center gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-spin-orange transition-colors duration-300"
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
           </motion.div>
 
           {/* Quick Links */}
@@ -107,7 +64,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="text-white font-bold text-lg mb-4 uppercase tracking-wide">Links Rápidos</h4>
+            <h4 className="text-white font-heading font-bold text-lg mb-4 uppercase tracking-wide">Links Rápidos</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -129,7 +86,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-white font-bold text-lg mb-4 uppercase tracking-wide">Contactos</h4>
+            <h4 className="text-white font-heading font-bold text-lg mb-4 uppercase tracking-wide">Contactos</h4>
             <ul className="space-y-3">
               <li>
                 <a
@@ -166,6 +123,19 @@ const Footer = () => {
                   info@spinpadel.pt
                 </a>
               </li>
+              {socialLinks.map((social) => (
+                <li key={social.name}>
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-gray-400 hover:text-spin-orange transition-colors duration-300 text-sm"
+                  >
+                    <span className="text-white">{social.icon}</span>
+                    {social.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -176,9 +146,9 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 className="text-white font-bold text-lg mb-4 uppercase tracking-wide">Localização</h4>
+            <h4 className="text-white font-heading font-bold text-lg mb-4 uppercase tracking-wide">Localização</h4>
             <a
-              href="https://maps.google.com/?q=Complexo+Municipal+de+Fitares,+R.+Casuarinas+9,+2635+Rinchoa"
+              href="https://maps.google.com/?q=Piscinas+Fitares,+Praça+Clube+s/n,+2635-453+Rio+de+Mouro"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-start gap-3 text-gray-400 hover:text-spin-orange transition-colors duration-300 text-sm"
@@ -188,15 +158,15 @@ const Footer = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
               <span>
-                Complexo Municipal de Fitares<br />
-                R. Casuarinas 9<br />
-                2635 Rinchoa
+                Piscinas Fitares<br />
+                Praça Clube s/n<br />
+                2635-453 Rio de Mouro
               </span>
             </a>
 
             {/* Opening Hours */}
             <div className="mt-6 pt-6 border-t border-gray-800">
-              <h5 className="text-white font-bold text-sm mb-3 uppercase tracking-wide flex items-center gap-2">
+              <h5 className="text-white font-heading font-bold text-sm mb-3 uppercase tracking-wide flex items-center gap-2">
                 <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>

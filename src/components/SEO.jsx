@@ -5,16 +5,16 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "SportsActivityLocation",
   "name": "Spin Padel Club",
-  "description": "O teu destino premium para padel em Rinchoa. Campos de qualidade, aulas com professores certificados e uma comunidade apaixonada.",
+  "description": "O teu destino premium para padel em Rio de Mouro. Campos de qualidade, aulas com professores certificados e uma comunidade apaixonada.",
   "url": "https://spinpadel.pt",
   "telephone": "+351928439668",
   "email": "info@spinpadel.pt",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Complexo Municipal de Fitares, R. Casuarinas 9",
-    "addressLocality": "Rinchoa",
+    "streetAddress": "Piscinas Fitares, Praça Clube s/n",
+    "addressLocality": "Rio de Mouro",
     "addressRegion": "Lisboa",
-    "postalCode": "2635",
+    "postalCode": "2635-453",
     "addressCountry": "PT"
   },
   "geo": {
@@ -25,15 +25,9 @@ const localBusinessSchema = {
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "07:00",
-      "closes": "23:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Saturday", "Sunday"],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       "opens": "08:00",
-      "closes": "22:00"
+      "closes": "00:00"
     }
   ],
   "priceRange": "€€",
@@ -55,7 +49,7 @@ const localBusinessSchema = {
 
 const SEO = ({
   title = 'Spin Padel Club',
-  description = 'O teu destino premium para padel em Rinchoa. Campos de qualidade, aulas com professores certificados e uma comunidade apaixonada. Reserva já!',
+  description = 'O teu destino premium para padel em Rio de Mouro. Campos de qualidade, aulas com professores certificados e uma comunidade apaixonada. Reserva já!',
   keywords = 'padel, spin padel, padel rinchoa, campos padel, aulas padel, torneios padel, reservar campo padel',
   image = '/og-image.jpg',
   url = 'https://spinpadel.pt',
@@ -95,7 +89,7 @@ const SEO = ({
 
       {/* Geo Tags */}
       <meta name="geo.region" content="PT-11" />
-      <meta name="geo.placename" content="Rinchoa, Sintra" />
+      <meta name="geo.placename" content="Rio de Mouro, Sintra" />
 
       {/* Schema.org Local Business (only on homepage) */}
       {includeLocalBusiness && (

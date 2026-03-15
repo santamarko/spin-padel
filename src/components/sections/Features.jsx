@@ -18,7 +18,7 @@ const FeatureItem = ({ title, description, icon, delay, gradient, isWhite, index
       {/* Icon/Visual Side */}
       <motion.div
         whileHover={{ scale: 1.05 }}
-        className={`${gradient} rounded-3xl p-8 md:p-16 flex items-center justify-center w-full md:w-1/2 lg:w-2/5 h-48 sm:h-64 md:h-auto md:min-h-[350px] shadow-2xl`}
+        className={`${gradient} rounded-3xl p-8 md:p-12 lg:p-16 flex items-center justify-center w-full md:w-1/2 lg:w-2/5 h-48 sm:h-64 md:h-auto md:min-h-[280px] lg:min-h-[350px] shadow-2xl`}
       >
         <div className={`w-32 h-32 md:w-40 md:h-40 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 ${isWhite ? 'text-black' : 'text-white'}`}>
           {icon}

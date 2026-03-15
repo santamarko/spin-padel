@@ -4,6 +4,16 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  // Safelist ensures dynamically-constructed classes are never purged in production
+  // Only include classes that are constructed dynamically (from variables/functions)
+  safelist: [
+    // ContactoPage.jsx - method.color is dynamic
+    'bg-spin-whatsapp',
+    // NoticiasPage.jsx - getCategoryColor() returns these dynamically
+    'bg-spin-orange/20',
+    'bg-spin-blue/20',
+    'bg-spin-blue/10',
+  ],
   theme: {
     extend: {
       colors: {
@@ -20,10 +30,10 @@ export default {
         'spin-dark-grey-3': '#212327',
         'spin-grey': '#48484c',
         'spin-light-grey': '#b5b3b3',
+        'spin-whatsapp': '#25D366',
       },
       fontFamily: {
-        // Roboto for all text
-        'heading': ['Roboto', 'system-ui', 'sans-serif'],
+        'heading': ['Sporty Pro', 'Roboto', 'system-ui', 'sans-serif'],
         'sans': ['Roboto', 'system-ui', 'sans-serif'],
         'body': ['Roboto', 'system-ui', 'sans-serif'],
       },

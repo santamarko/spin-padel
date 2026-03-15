@@ -17,6 +17,7 @@ const WhatsAppButton = () => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+      style={{ bottom: 'max(1.5rem, env(safe-area-inset-bottom, 1.5rem))' }}
       aria-label="Contactar via WhatsApp"
     >
       <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">

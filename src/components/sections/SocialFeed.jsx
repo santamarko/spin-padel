@@ -30,7 +30,7 @@ const SocialFeed = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-spin-teal via-spin-offwhite/50 to-spin-offwhite">
+    <section className="py-20 px-4 bg-spin-offwhite">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -67,6 +67,7 @@ const SocialFeed = () => {
               <img
                 src={post.image}
                 alt={post.caption}
+                loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               

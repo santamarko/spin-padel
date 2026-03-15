@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { useVideoCarousel } from '../../hooks/useVideoCarousel';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 import { siteConfig } from '../../config';
 
 const WHATSAPP_NUMBER = '351928439668';
@@ -8,6 +10,16 @@ const WHATSAPP_MESSAGE = 'Olá! Gostaria de fazer uma reserva no Spin Padel.';
 const Hero = () => {
   const videos = siteConfig.videos.hero;
   const { activeVideo, setVideoRef, handleVideoEnd } = useVideoCarousel(videos);
+  const prefersReducedMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`, '_blank');
@@ -15,23 +27,29 @@ const Hero = () => {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Video Background com crossfade */}
+      {/* Video Background com crossfade - on mobile, only load first video with metadata preload */}
       <div className="absolute inset-0 w-full h-full">
-        {videos.map((video, index) => (
-          <video
-            key={index}
-            ref={setVideoRef(index)}
-            autoPlay={index === 0}
-            muted
-            playsInline
-            preload="auto"
-            onEnded={() => handleVideoEnd(index)}
-            className="w-full h-full object-cover absolute inset-0 grayscale transition-opacity duration-[1500ms] ease-in-out"
-            style={{ opacity: activeVideo === index ? 1 : 0 }}
-          >
-            <source src={video} type="video/mp4" />
-          </video>
-        ))}
+        {videos.map((video, index) => {
+          // On mobile, only render the first video to save bandwidth
+          if (isMobile && index > 0) return null;
+          return (
+            <video
+              key={index}
+              ref={setVideoRef(index)}
+              autoPlay={index === 0 && !prefersReducedMotion}
+              muted
+              playsInline
+              loop={isMobile}
+              preload={isMobile ? 'metadata' : 'auto'}
+              poster="/video/hero-poster.jpg"
+              onEnded={!isMobile ? () => handleVideoEnd(index) : undefined}
+              className="w-full h-full object-cover absolute inset-0 grayscale transition-opacity duration-[1500ms] ease-in-out"
+              style={{ opacity: activeVideo === index || (isMobile && index === 0) ? 1 : 0 }}
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+          );
+        })}
       </div>
 
       {/* Overlay escuro com fade para baixo */}
@@ -62,7 +80,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-heading font-black leading-tight mb-4"
         >
-          <span className="text-white block whitespace-nowrap">BEM-VINDO AO</span>
+          <span className="text-white block">BEM-VINDO AO</span>
           <span className="text-spin-orange block">SPIN PADEL</span>
         </motion.h1>
 
@@ -101,14 +119,14 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={prefersReducedMotion ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
+        transition={{ duration: prefersReducedMotion ? 0 : 1, delay: prefersReducedMotion ? 0 : 1.2 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
+          animate={prefersReducedMotion ? {} : { y: [0, 10, 0] }}
+          transition={prefersReducedMotion ? {} : { duration: 1.5, repeat: Infinity }}
           className="w-6 h-10 border-2 border-white/60 rounded-full flex items-start justify-center p-2"
         >
           <div className="w-1 h-3 bg-white/80 rounded-full"></div>

@@ -29,7 +29,7 @@ function ScrollToTop() {
 
 // Loading fallback component
 const PageLoader = () => (
-  <div className="min-h-screen bg-spin-dark flex items-center justify-center">
+  <div className="min-h-screen bg-spin-deep-blue flex items-center justify-center">
     <div className="text-center">
       <div className="w-12 h-12 border-4 border-spin-orange border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
       <p className="text-gray-400 text-sm">A carregar...</p>

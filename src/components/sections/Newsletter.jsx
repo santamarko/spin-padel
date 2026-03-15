@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
 
 const WHATSAPP_NUMBER = '351928439668';
 const WHATSAPP_MESSAGE = 'Olá! Gostaria de saber mais sobre o Spin Padel.';
 
 const Newsletter = () => {
+  const prefersReducedMotion = useReducedMotion();
   const line1Words = ['PADEL', 'AMIGOS', 'DIVERSAO', 'COMPETICAO', 'ENERGIA', 'VITORIA', 'DESAFIO', 'JOGO', 'EQUIPA', 'CHAMPIONS'];
   const line2Words = ['COMUNIDADE', 'TORNEIOS', 'ADRENALINA', 'VELOCIDADE', 'PRECISAO', 'ESTRATEGIA', 'SMASH', 'VOLLEY', 'TECNICA', 'DOMINIO'];
   const line3Words = ['PAIXAO', 'TREINO', 'EVOLUCAO', 'SPIN', 'PERFORMANCE', 'TATICA', 'FORCA', 'AGILIDADE', 'FOCO', 'EXCELENCIA'];
@@ -19,8 +21,8 @@ const Newsletter = () => {
         {/* Line 1 */}
         <div className="flex items-center overflow-hidden">
           <motion.div
-            animate={{ x: ['0%', '-50%'] }}
-            transition={{
+            animate={prefersReducedMotion ? {} : { x: ['0%', '-50%'] }}
+            transition={prefersReducedMotion ? {} : {
               duration: 120,
               repeat: Infinity,
               ease: "linear",
@@ -38,8 +40,8 @@ const Newsletter = () => {
         {/* Line 2 */}
         <div className="flex items-center overflow-hidden">
           <motion.div
-            animate={{ x: ['-50%', '0%'] }}
-            transition={{
+            animate={prefersReducedMotion ? {} : { x: ['-50%', '0%'] }}
+            transition={prefersReducedMotion ? {} : {
               duration: 140,
               repeat: Infinity,
               ease: "linear",
@@ -57,8 +59,8 @@ const Newsletter = () => {
         {/* Line 3 */}
         <div className="flex items-center overflow-hidden">
           <motion.div
-            animate={{ x: ['0%', '-50%'] }}
-            transition={{
+            animate={prefersReducedMotion ? {} : { x: ['0%', '-50%'] }}
+            transition={prefersReducedMotion ? {} : {
               duration: 110,
               repeat: Infinity,
               ease: "linear",

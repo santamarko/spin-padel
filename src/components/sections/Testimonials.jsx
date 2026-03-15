@@ -1,8 +1,16 @@
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion, useMotionValue, useAnimation } from 'framer-motion';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { useReducedMotion } from '../../hooks/useReducedMotion';
+
+const CARD_GAP = 24; // gap-6 = 24px
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardWidth, setCardWidth] = useState(384);
+  const containerRef = useRef(null);
+  const dragX = useMotionValue(0);
+  const controls = useAnimation();
+  const prefersReducedMotion = useReducedMotion();
 
   const testimonialsList = [
     {
@@ -83,13 +91,64 @@ const Testimonials = () => {
   // Create infinite loop by duplicating the array multiple times
   const testimonials = [...sortedTestimonials, ...sortedTestimonials, ...sortedTestimonials];
 
+  // Measure card width responsively
+  const updateCardWidth = useCallback(() => {
+    if (!containerRef.current) return;
+    const containerWidth = containerRef.current.offsetWidth;
+    if (containerWidth < 640) {
+      // Mobile: 85vw
+      setCardWidth(containerWidth * 0.85);
+    } else if (containerWidth < 768) {
+      // sm: w-80 = 320px
+      setCardWidth(320);
+    } else {
+      // md+: w-96 = 384px
+      setCardWidth(384);
+    }
+  }, []);
+
+  useEffect(() => {
+    updateCardWidth();
+    window.addEventListener('resize', updateCardWidth);
+    return () => window.removeEventListener('resize', updateCardWidth);
+  }, [updateCardWidth]);
+
+  const slideOffset = cardWidth + CARD_GAP;
+
   // Auto-scroll carousel with infinite loop
   useEffect(() => {
+    if (prefersReducedMotion) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => prev + 1);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [prefersReducedMotion]);
+
+  // Animate to current index
+  useEffect(() => {
+    controls.start({
+      x: -(currentIndex * slideOffset),
+      transition: prefersReducedMotion
+        ? { duration: 0 }
+        : { duration: 0.8, ease: 'easeInOut' },
+    });
+  }, [currentIndex, slideOffset, controls, prefersReducedMotion]);
+
+  // Swipe handling
+  const handleDragEnd = (_, info) => {
+    const threshold = slideOffset * 0.2;
+    if (info.offset.x < -threshold) {
+      setCurrentIndex((prev) => prev + 1);
+    } else if (info.offset.x > threshold) {
+      setCurrentIndex((prev) => Math.max(0, prev - 1));
+    } else {
+      // Snap back
+      controls.start({
+        x: -(currentIndex * slideOffset),
+        transition: { duration: 0.4, ease: 'easeOut' },
+      });
+    }
+  };
 
   const renderStars = (rating) => {
     return [...Array(5)].map((_, i) => (
@@ -105,36 +164,40 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="relative py-20 px-4 bg-spin-teal">
+    <section className="relative py-20 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-heading font-black text-spin-teal mb-4 tracking-tight">
             O QUE DIZEM OS NOSSOS JOGADORES
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
             A opinião de quem joga connosco é o nosso maior orgulho
           </p>
         </motion.div>
 
         {/* Testimonials Carousel */}
-        <div className="relative mb-16">
+        <div className="relative mb-16" ref={containerRef}>
           <div className="overflow-hidden">
             <motion.div
-              className="flex gap-6"
-              animate={{ x: `-${currentIndex * 400}px` }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
+              className="flex gap-6 cursor-grab active:cursor-grabbing"
+              animate={controls}
+              drag="x"
+              dragConstraints={{ left: -(testimonials.length * slideOffset), right: 0 }}
+              dragElastic={0.1}
+              onDragEnd={handleDragEnd}
+              style={{ x: dragX }}
             >
               {testimonials.map((testimonial, idx) => (
                 <motion.div
                   key={idx}
-                  className="flex-shrink-0 w-96 bg-spin-black/30 rounded-2xl p-8 relative flex flex-col h-96"
+                  className="flex-shrink-0 w-[85vw] sm:w-80 md:w-96 bg-gray-100 rounded-2xl p-6 sm:p-8 relative flex flex-col h-80 sm:h-96"
                 >
                   {/* Quote Icon */}
                   <div className="absolute top-6 right-6 text-spin-orange/20">
@@ -149,7 +212,7 @@ const Testimonials = () => {
                   </div>
 
                   {/* Quote */}
-                  <p className="text-gray-300 leading-relaxed mb-6 text-base flex-1">
+                  <p className="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base flex-1">
                     "{testimonial.quote}"
                   </p>
 
@@ -159,8 +222,8 @@ const Testimonials = () => {
                       {testimonial.avatar}
                     </div>
                     <div>
-                      <div className="text-white font-bold text-sm">{testimonial.name}</div>
-                      <div className="text-gray-500 text-xs">{testimonial.role}</div>
+                      <div className="text-spin-teal font-bold text-sm">{testimonial.name}</div>
+                      <div className="text-gray-400 text-xs">{testimonial.role}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -171,23 +234,23 @@ const Testimonials = () => {
 
         {/* Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: prefersReducedMotion ? 0 : 0.4 }}
           className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-6"
         >
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-black text-white mb-2">4.9</div>
-            <div className="text-gray-400 text-sm uppercase tracking-wide">Avaliação Média</div>
+            <div className="text-4xl md:text-5xl font-heading font-black text-spin-teal mb-2">4.9</div>
+            <div className="text-gray-500 text-sm uppercase tracking-wide">Avaliação Média</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-black text-white mb-2">500+</div>
-            <div className="text-gray-400 text-sm uppercase tracking-wide">Jogadores Mensais Ativos</div>
+            <div className="text-4xl md:text-5xl font-heading font-black text-spin-teal mb-2">500+</div>
+            <div className="text-gray-500 text-sm uppercase tracking-wide">Jogadores Mensais Ativos</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-black text-white mb-2">3000+</div>
-            <div className="text-gray-400 text-sm uppercase tracking-wide">Nº Jogos Mensais</div>
+            <div className="text-4xl md:text-5xl font-heading font-black text-spin-teal mb-2">3000+</div>
+            <div className="text-gray-500 text-sm uppercase tracking-wide">Nº Jogos Mensais</div>
           </div>
         </motion.div>
       </div>

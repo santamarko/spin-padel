@@ -78,6 +78,7 @@ const CookieConsent = () => {
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
           className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
+          style={{ paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 1rem))' }}
         >
           <div className="max-w-4xl mx-auto bg-spin-black border border-gray-700 rounded-2xl shadow-2xl overflow-hidden">
             {!showPreferences ? (
@@ -101,7 +102,7 @@ const CookieConsent = () => {
                         onClick={handleAcceptAll}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="bg-spin-orange text-white font-bold px-6 py-2.5 rounded-full hover:bg-spin-orange/90 transition-colors text-sm"
+                        className="bg-spin-orange text-white font-heading font-bold px-6 py-2.5 rounded-full hover:bg-spin-orange/90 transition-colors text-sm"
                       >
                         Aceitar Todos
                       </motion.button>
@@ -214,7 +215,7 @@ const CookieConsent = () => {
                     onClick={handleSavePreferences}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="bg-spin-orange text-white font-bold px-6 py-2.5 rounded-full hover:bg-spin-orange/90 transition-colors text-sm"
+                    className="bg-spin-orange text-white font-heading font-bold px-6 py-2.5 rounded-full hover:bg-spin-orange/90 transition-colors text-sm"
                   >
                     Guardar Preferências
                   </motion.button>

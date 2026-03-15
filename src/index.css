@@ -1,5 +1,29 @@
-/* Google Fonts - Roboto for all text */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+/* Fonts are loaded via <link> in index.html for better performance */
+
+/* Sporty Pro - Brand heading font (from Brandbook) */
+@font-face {
+  font-family: 'Sporty Pro';
+  src: url('/fonts/SportyPro-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sporty Pro';
+  src: url('/fonts/SportyPro-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sporty Pro';
+  src: url('/fonts/SportyPro-XLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -11,14 +35,28 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Roboto', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Heading styles using Roboto Black for impact */
+/* Respect prefers-reduced-motion globally */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Heading styles using Sporty Pro for brand impact */
 h1, h2, .font-heading {
-  font-family: 'Roboto', system-ui, sans-serif;
-  font-weight: 900; /* Use Black weight for headings */
+  font-family: 'Sporty Pro', 'Roboto', system-ui, sans-serif;
+  font-weight: 900;
 }
