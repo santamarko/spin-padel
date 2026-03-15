@@ -13,7 +13,7 @@ const Newsletter = () => {
   };
 
   return (
-    <section className="relative py-24 px-4 bg-spin-orange overflow-hidden">
+    <section className="relative py-16 px-4 bg-spin-orange overflow-hidden">
       {/* Background Text with horizontal animation - 3 lines covering full height */}
       <div className="absolute inset-0 flex flex-col justify-around overflow-hidden py-8">
         {/* Line 1 */}
@@ -26,7 +26,7 @@ const Newsletter = () => {
               ease: "linear",
               repeatType: "loop"
             }}
-            className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-heading font-black text-white/10 leading-tight whitespace-nowrap flex"
+            className="text-[2.5rem] md:text-[4rem] lg:text-[5.5rem] font-heading font-black text-white/10 leading-tight whitespace-nowrap flex"
             style={{ fontFamily: "'Sporty Pro', Roboto, sans-serif" }}
           >
             {[...line1Words, ...line1Words, ...line1Words].map((word, i) => (
@@ -45,7 +45,7 @@ const Newsletter = () => {
               ease: "linear",
               repeatType: "loop"
             }}
-            className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-heading font-black text-white/10 leading-tight whitespace-nowrap flex"
+            className="text-[2.5rem] md:text-[4rem] lg:text-[5.5rem] font-heading font-black text-white/10 leading-tight whitespace-nowrap flex"
             style={{ fontFamily: "'Sporty Pro', Roboto, sans-serif" }}
           >
             {[...line2Words, ...line2Words, ...line2Words].map((word, i) => (
@@ -64,7 +64,7 @@ const Newsletter = () => {
               ease: "linear",
               repeatType: "loop"
             }}
-            className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-heading font-black text-white/10 leading-tight whitespace-nowrap flex"
+            className="text-[2.5rem] md:text-[4rem] lg:text-[5.5rem] font-heading font-black text-white/10 leading-tight whitespace-nowrap flex"
             style={{ fontFamily: "'Sporty Pro', Roboto, sans-serif" }}
           >
             {[...line3Words, ...line3Words, ...line3Words].map((word, i) => (
