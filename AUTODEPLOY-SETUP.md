@@ -31,28 +31,39 @@ test
 
 ## 🔧 Setup Instructions
 
-### Step 1: Generate SSH Key (if you don't have one)
+### Step 1: Generate SSH Key WITHOUT Passphrase
 
-On your **local machine** or **from the server**:
+**⚠️ IMPORTANT: Run this ON THE SERVER (not your local machine)**
+
+SSH into your Debian server, then run:
 
 ```bash
-ssh-keygen -t ed25519 -C "github-actions-deploy" -f ~/.ssh/github_deploy
+# Generate key WITHOUT passphrase (press Enter when asked for passphrase)
+ssh-keygen -t ed25519 -C "github-actions-deploy" -f ~/.ssh/github_deploy -N ""
 ```
+
+The `-N ""` flag creates the key **without a passphrase** (required for GitHub Actions).
 
 This creates two files:
 
 - `~/.ssh/github_deploy` (private key) - **keep this secret!**
 - `~/.ssh/github_deploy.pub` (public key)
 
-### Step 2: Add Public Key to Server
+### Step 2: Add Public Key to Server's Authorized Keys
 
-Copy the public key to your server:
+**ON THE SERVER**, add the public key to authorized_keys:
 
 ```bash
-ssh-copy-id -i ~/.ssh/github_deploy.pub user@your-server.com
+cat ~/.ssh/github_deploy.pub >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
 ```
 
-Or manually add it to `~/.ssh/authorized_keys` on the server.
+**Verify it worked:**
+
+```bash
+cat ~/.ssh/authorized_keys
+# You should see your new key listed
+```
 
 ### Step 3: Add Secrets to GitHub
 
