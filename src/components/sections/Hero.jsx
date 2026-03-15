@@ -78,7 +78,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-heading font-black leading-tight mb-4"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-black leading-tight mb-4"
         >
           <span className="text-white block">BEM-VINDO AO</span>
           <span className="text-spin-orange block">SPIN PADEL</span>

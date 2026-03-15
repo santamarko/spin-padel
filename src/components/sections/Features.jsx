@@ -77,7 +77,7 @@ const Features = () => {
             className="inline-block mb-6"
           >
           </motion.div>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-white mb-6 tracking-tight leading-none">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-white mb-6 tracking-tight leading-none">
             EXPERIMENTA. <span className="text-spin-orange">APRENDE.</span>
             <br />
             <span className="text-spin-blue">
