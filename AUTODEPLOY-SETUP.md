@@ -27,8 +27,6 @@ We're using **GitHub Actions** to automatically:
 
 ---
 
-test
-
 ## 🔧 Setup Instructions
 
 ### Step 1: Generate SSH Key WITHOUT Passphrase
