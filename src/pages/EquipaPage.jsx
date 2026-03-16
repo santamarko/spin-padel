@@ -18,13 +18,13 @@ export default function EquipaPage() {
     { name: 'Gonçalo Bettencourt', role: 'Diretor Desportivo', image: null },
     { name: 'Rodrigo Mendes', role: 'Marketing & Comunicação', image: null },
     { name: 'João Roso', role: 'Treinador', image: null },
-    { name: 'Em breve', role: 'Treinador', image: null, placeholder: true },
+    { name: 'Rafael Araujo', role: 'Treinador', image: null },
     { name: 'Diogo Cruz', role: 'Chefe de Receção', image: null },
-    { name: 'Em breve', role: 'Rececionista', image: null, placeholder: true },
-    { name: 'Em breve', role: 'Rececionista', image: null, placeholder: true },
-    { name: 'Mónica', role: 'Chefe de Bar', image: null },
+    { name: 'Inês Alves', role: 'Rececionista', image: null },
+    { name: 'Ana Matos', role: 'Rececionista', image: null },
+    { name: 'Mónica Mendes', role: 'Chefe de Bar', image: null },
     { name: 'André Oliveira', role: 'Barista', image: null },
-    { name: 'Kaio', role: 'Barista', image: null },
+    { name: 'Kaio Freire', role: 'Barista', image: null },
     { name: 'Fábio Tavares', role: 'Barista', image: null },
   ];
 
